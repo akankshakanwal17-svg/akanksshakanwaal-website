@@ -458,7 +458,7 @@
       <a href="#work">Work</a>
       <a href="#mission">Mission</a>
     </div>
-    <button class="book-btn" data-book="a strategy call"><a href="https://cal.com/akankssha-kanwaal/30min">Book a Call</a></button>
+    <button class="book-btn" data-book="a strategy call">Book a Call</button>
   </div>
 </nav>
 
@@ -737,9 +737,10 @@
   }
   function closeModal(){modal.classList.remove('show');document.body.style.overflow='';}
 
-  // wire every booking trigger
+  // every booking CTA opens the Cal.com scheduling page
+  const CAL_URL = "https://cal.com/akankssha-kanwaal/30min";
   document.querySelectorAll('[data-book]').forEach(el=>{
-    el.addEventListener('click',()=>openModal(el.getAttribute('data-book')));
+    el.addEventListener('click',()=>window.open(CAL_URL,'_blank','noopener'));
   });
   document.getElementById('modalClose').addEventListener('click',closeModal);
   modal.addEventListener('click',e=>{if(e.target===modal)closeModal();});
